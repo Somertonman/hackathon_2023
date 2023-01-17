@@ -39,3 +39,13 @@
 
 <img width="1068" alt="Screenshot at Jan 18 00-21-48" src="https://user-images.githubusercontent.com/94981693/213028192-0c07654c-d8ae-4252-9feb-834f01ac9238.png">
 
+## Построение графа связей
+Для построения [графа связей](https://github.com/Somertonman/hackathon_2023/blob/main/graph_org.ipynb) использована библиотека [NetworkX](https://networkx.org/)
+
+
+
+Граф отражает взаимосвязь отделов компании, должностей и конкретных сотрудников
+![image_2023-01-18_01-10-45](https://user-images.githubusercontent.com/94981693/213029833-8f5ea06f-32ca-42b2-8cd3-b9e6f9118930.png)
+
+
+
