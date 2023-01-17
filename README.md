@@ -41,10 +41,41 @@
 
 ## Построение графа связей
 Для построения [графа связей](https://github.com/Somertonman/hackathon_2023/blob/main/graph_org.ipynb) использована библиотека [NetworkX](https://networkx.org/)
+```
+G = nx.Graph()
 
+comp_name = 'COMPANY'
 
+for z in list(departments):
+    G.add_edge(comp_name, z)
+    # iterate through the rows of the DataFrame
+    for i, row in df.iterrows():
+        # add task_responsibles_groups node
+        dept = row["dept"]
+        G.add_node(dept, size=df["dept"].value_counts()[dept])
+        # add position node
+        position = row["position"]
+        G.add_node(position, size=df["position"].value_counts()[position])
+        # add name node
+        name = row["name"]
+        G.add_node(name, size=df["name"].value_counts()[name])
+        # add edges between task_responsibles_groups and position
+        G.add_edge(dept, position)
+        # add edges between position and name
+        G.add_edge(position, name)
+```
 
 Граф отражает взаимосвязь отделов компании, должностей и конкретных сотрудников
+
+Для отрисовки графа использована библиотека matplotlib
+
+```
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(30,30)) # set the size of the figure
+pos = nx.spring_layout(G) # use spring layout to calculate node positions
+nx.draw(G, pos, with_labels=True)
+```
 ![image_2023-01-18_01-10-45](https://user-images.githubusercontent.com/94981693/213029833-8f5ea06f-32ca-42b2-8cd3-b9e6f9118930.png)
 
 
