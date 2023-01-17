@@ -21,4 +21,21 @@
 ## Преобразование данных 
 [Преобразование данных](https://github.com/Somertonman/hackathon_2023/blob/main/data_preparation.ipynb) в датафрейм происходит при помощи модели transformers
 
-Поиск искомых полей в тексте происходит за счет парсинга текстового поля Задачи 
+Поиск искомых полей в тексте происходит за счет парсинга текстового поля Задачи `task_responsibles_people`
+
+```
+  question = "Какая должность?"
+  df['position'] = df.apply(lambda x: im_pad(qa_pipeline(question, x['task_responsibles_people'])['answer']), axis = 1)
+
+  question = "Какое имя?"
+  df['name'] = df.apply(lambda x: im_pad(qa_pipeline(question, x['task_responsibles_people'])['answer']), axis = 1)
+```
+Получаем читаемый датафрейм в виде таблице, в которой мы получили следующие поля:
+- Номер Задачи `task_num`
+- Текст задачи `task_text`
+- Отдел `dept`
+- Должность `position`
+- Имя сотрудника `name`
+
+<img width="1068" alt="Screenshot at Jan 18 00-21-48" src="https://user-images.githubusercontent.com/94981693/213028192-0c07654c-d8ae-4252-9feb-834f01ac9238.png">
+
