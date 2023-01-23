@@ -76,7 +76,7 @@ plt.figure(figsize=(30,30)) # set the size of the figure
 pos = nx.spring_layout(G) # use spring layout to calculate node positions
 nx.draw(G, pos, with_labels=True)
 ```
-![image_2023-01-18_01-10-45](https://user-images.githubusercontent.com/94981693/213029833-8f5ea06f-32ca-42b2-8cd3-b9e6f9118930.png)
+![image](https://user-images.githubusercontent.com/44744458/214048914-ccc5d881-b3fb-437a-86c5-86e42a7d74ee.png)
 
 
 
